@@ -122,7 +122,7 @@ for i in range(4):
         st.session_state[f"open_{i}"] = False
 
 # ---------- PASSWORD ----------
-PASSWORD = "blueboy"
+PASSWORD = "ILOVEYOU"
 
 # ---------- LOGIN ----------
 if st.session_state.page == "login":
