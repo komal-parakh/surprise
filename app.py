@@ -283,36 +283,35 @@ elif st.session_state.page == "dashboard":
 
             if st.button(f"💌 {title}", key=f"btn_{i}"):
                 st.session_state[f"open_{i}"] = not st.session_state.get(f"open_{i}", False)
-
-        # envelope style header
-        st.markdown(f"""
-        <div style="
-            background:#0047AB;
-            color:white;
-            padding:15px;
-            border-radius:10px;
-            margin-bottom:10px;
-            text-align:center;
-            font-weight:600;">
-            {title}
-        </div>
-        """, unsafe_allow_html=True)
-
-        # expanding letter
-        if st.session_state.get(f"open_{i}", False):
-            st.markdown(f"""
-            <div style="
-                background:white;
-                padding:20px;
-                border-radius:12px;
-                margin-bottom:20px;
-                line-height:1.7;
-                font-size:15px;
-                box-shadow:0px 4px 15px rgba(0,0,0,0.1);
-                animation: fadeIn 0.5s ease-in-out;">
-                {content}
-            </div>
-            """, unsafe_allow_html=True)
+                # envelope style header
+                st.markdown(f"""
+                <div style="
+                    background:#0047AB;
+                    color:white;
+                    padding:15px;
+                    border-radius:10px;
+                    margin-bottom:10px;
+                    text-align:center;
+                    font-weight:600;">
+                    {title}
+                </div>
+                """, unsafe_allow_html=True)
+        
+                # expanding letter
+                if st.session_state.get(f"open_{i}", False):
+                    st.markdown(f"""
+                    <div style="
+                        background:white;
+                        padding:20px;
+                        border-radius:12px;
+                        margin-bottom:20px;
+                        line-height:1.7;
+                        font-size:15px;
+                        box-shadow:0px 4px 15px rgba(0,0,0,0.1);
+                        animation: fadeIn 0.5s ease-in-out;">
+                        {content}
+                    </div>
+                    """, unsafe_allow_html=True)
     # ---------- TIME ----------
     elif menu == "⏳ Time":
         st.markdown('<p class="title">Time with you ❤️</p>', unsafe_allow_html=True)
