@@ -280,21 +280,37 @@ elif st.session_state.page == "dashboard":
         I love the person you are, your nature, and honestly your heart."""
         )
         ]
-        st.markdown("<p style='font-size:12px; color:gray;'>scroll ↓</p>", unsafe_allow_html=True)
+        # envelope button
+        if st.button(f"💌 {title}", key=f"btn_{i}"):
+            st.session_state[f"open_{i}"] = not st.session_state.get(f"open_{i}", False)
 
-        for i, (title, content) in enumerate(letters):
-            if st.button(f" {title}", key=f"env_btn_{i}"):
-                st.session_state[f"open_{i}"] = not st.session_state.get(f"open_{i}", False)
+        # container
+        st.markdown(f"""
+        <div style="
+            background:#0047AB;
+            color:white;
+            padding:15px;
+            border-radius:10px;
+            margin-bottom:10px;
+            text-align:center;
+            font-weight:600;">
+            {title}
+        </div>
+        """, unsafe_allow_html=True)
 
-            state = "open" if st.session_state.get(f"open_{i}", False) else ""
-
+        # EXPANDING LETTER
+        if st.session_state.get(f"open_{i}", False):
             st.markdown(f"""
-            <div class="envelope-container">
-                <div class="envelope {state}">
-                    <div class="flap"></div>
-                    <div class="title-text">{title}</div>
-                    <div class="letter" style="line-height:1.6; font-size:15px;">{content}</div>
-                </div>
+            <div style="
+                background:white;
+                padding:20px;
+                border-radius:12px;
+                margin-bottom:20px;
+                line-height:1.7;
+                font-size:15px;
+                box-shadow:0px 4px 15px rgba(0,0,0,0.1);
+                animation: fadeIn 0.5s ease-in-out;">
+                {content}
             </div>
             """, unsafe_allow_html=True)
     # ---------- TIME ----------
