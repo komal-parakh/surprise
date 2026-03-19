@@ -139,12 +139,10 @@ if st.session_state.page == "login":
 elif st.session_state.page == "dashboard":
 
     # 🎶 music
-    st.markdown("""
-    <audio autoplay loop>
-      <source src="music.mp3" type="audio/mp3">
-    </audio>
-    """, unsafe_allow_html=True)
-
+    st.markdown("### 🎶 Play this first 😏")
+    audio_file = open("music.mp3", "rb")
+    audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format="audio/mp3")
     # 🔝 navbar
     menu = st.radio(
         "",
