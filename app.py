@@ -183,7 +183,6 @@ elif st.session_state.page == "dashboard":
     # ---------- 💌 ENVELOPES ----------
     elif menu == "💌 Letters":
         st.markdown('<p class="title">Open When 💌</p>', unsafe_allow_html=True)
-
         st.markdown("""
         <style>
         .envelope-container {
@@ -280,11 +279,12 @@ elif st.session_state.page == "dashboard":
         I love the person you are, your nature, and honestly your heart."""
         )
         ]
-        # envelope button
+        for i, (title, content) in enumerate(letters):
+
         if st.button(f"💌 {title}", key=f"btn_{i}"):
             st.session_state[f"open_{i}"] = not st.session_state.get(f"open_{i}", False)
 
-        # container
+        # envelope style header
         st.markdown(f"""
         <div style="
             background:#0047AB;
@@ -298,7 +298,7 @@ elif st.session_state.page == "dashboard":
         </div>
         """, unsafe_allow_html=True)
 
-        # EXPANDING LETTER
+        # expanding letter
         if st.session_state.get(f"open_{i}", False):
             st.markdown(f"""
             <div style="
