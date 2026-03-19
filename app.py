@@ -230,36 +230,33 @@ elif st.session_state.page == "dashboard":
             padding: 18px;
             border-radius: 12px;
         
-            transform: translateY(100%);
-            transition: transform 0.6s ease;
+            /* hidden state */
+            max-height: 0;
+            overflow: hidden;
         
-            max-height: 140px;
-            overflow-y: auto;
+            /* animation */
+            transition: max-height 0.8s ease, padding 0.4s ease;
         
             line-height: 1.7;
             font-size: 15px;
         
             box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+        }
         
-            scrollbar-width: thin;
-        }
-
+        /* when opened 💌 */
         .open .letter {
-            transform: translateY(0);
+            max-height: 300px;   /* expands */
+            padding: 18px;
+            overflow-y: auto;
         }
-        .letter::-webkit-scrollbar {
-            width: 6px;
-        }
-        .letter::-webkit-scrollbar-thumb {
-            background: #4A90E2;
-            border-radius: 10px;
-        }
-
         .title-text {
             color: white;
             text-align: center;
             padding-top: 45px;
             font-weight: 600;
+        }
+        .envelope {
+            transition: all 0.3s ease;
         }
         </style>
         """, unsafe_allow_html=True)
