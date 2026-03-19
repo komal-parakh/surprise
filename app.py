@@ -281,8 +281,8 @@ elif st.session_state.page == "dashboard":
         ]
         for i, (title, content) in enumerate(letters):
 
-        if st.button(f"💌 {title}", key=f"btn_{i}"):
-            st.session_state[f"open_{i}"] = not st.session_state.get(f"open_{i}", False)
+            if st.button(f"💌 {title}", key=f"btn_{i}"):
+                st.session_state[f"open_{i}"] = not st.session_state.get(f"open_{i}", False)
 
         # envelope style header
         st.markdown(f"""
