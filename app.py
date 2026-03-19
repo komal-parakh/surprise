@@ -89,12 +89,26 @@ img:hover {
     background: #6FA8FF;
 }
 .letter {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    bottom: 10px;
     background: white;
-    color: black;
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 5px;
-    animation: fadeIn 0.5s ease-in-out;
+    
+    color: black !important;  /* 🔥 FORCE FIX */
+    
+    padding: 18px;
+    border-radius: 12px;
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: max-height 0.8s ease, padding 0.4s ease;
+
+    line-height: 1.7;
+    font-size: 15px;
+
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
 }
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(-10px);}
