@@ -286,7 +286,7 @@ elif st.session_state.page == "dashboard":
     elif menu == "⏳ Time":
         st.markdown('<p class="title">Time with you ❤️</p>', unsafe_allow_html=True)
 
-        start_date = datetime(2023, 28, 3)
+        start_date = datetime(2023, 3, 28)
         now = datetime.now()
 
         diff = now - start_date
