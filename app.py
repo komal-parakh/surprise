@@ -227,15 +227,32 @@ elif st.session_state.page == "dashboard":
             bottom: 10px;
             background: white;
             color: black;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 18px;
+            border-radius: 12px;
+        
             transform: translateY(100%);
-            transition: transform 0.6s;
-            z-index: 1;
+            transition: transform 0.6s ease;
+        
+            max-height: 140px;
+            overflow-y: auto;
+        
+            line-height: 1.7;
+            font-size: 15px;
+        
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+        
+            scrollbar-width: thin;
         }
 
         .open .letter {
             transform: translateY(0);
+        }
+        .letter::-webkit-scrollbar {
+            width: 6px;
+        }
+        .letter::-webkit-scrollbar-thumb {
+            background: #4A90E2;
+            border-radius: 10px;
         }
 
         .title-text {
@@ -266,6 +283,7 @@ elif st.session_state.page == "dashboard":
         I love the person you are, your nature, and honestly your heart."""
         )
         ]
+        st.markdown("<p style='font-size:12px; color:gray;'>scroll ↓</p>", unsafe_allow_html=True)
 
         for i, (title, content) in enumerate(letters):
             if st.button(f" {title}", key=f"env_btn_{i}"):
